@@ -1,0 +1,34 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<h1>Add Pictograph</h1>
+
+<%= form_for @pictograph do |f| %>
+
+	<% if @pictograph.errors.any? %>
+	<h2>Errors:</h2>
+	<ul>
+
+<% @pictograph.errors.full_messages.each do |message| %>
+
+<li><%= message %></li>
+<%end %>
+
+	</ul>
+	<%end%>
+	</br>
+
+	<p>Text: <br/>
+		<%= f.text_field(:text) %></p>	
+
+	<p>Photo: <br/>
+		<%=f.file_field(:photo)%></p> 
+
+	
+
+	<p>
+		<%= f.submit "Create Pictograph" %>
+
+	</p>
+
+<% end %>
+

@@ -1,0 +1,34 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<h1>Edit Testimonial</h1>
+
+<%= form_for @testimonial do |f| %>
+
+	<% if @testimonial.errors.any? %>
+	<h2>Errors:</h2>
+	<ul>
+
+<% @testimonial.errors.full_messages.each do |message| %>
+
+<li><%= message %></li>
+<%end %>
+
+	</ul>
+	<%end%>
+	</br>
+	<p>Photo: <br/>
+		<%=f.file_field(:photo)%></p> 
+
+	<p>Link: <br/>
+		<%= f.text_field(:image_link) %>
+
+	<p>Program: <br/>
+	 <%= f.select :program, [['TMP','1'],['TLP','2'],['GCDP','3'],['GIP','4']] %></p>
+
+	<p>
+		<%= f.submit "Done" %>
+
+	</p>
+
+<% end %>
+

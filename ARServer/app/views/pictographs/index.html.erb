@@ -1,0 +1,33 @@
+<html>
+<h2> Testimonials </h2>
+</br>
+<div>
+<% @testimonials.each do |t| %>
+<div style="margin-left:20px">
+<table>
+<tr>
+<td>
+<%= image_tag(t.photo.url, :size => "50x64") %>
+</td>
+<td>
+<div>
+<b>&nbsp;&nbsp;Program: </b><%= Program.find(t.program).name %>
+</br>
+<b>&nbsp;&nbsp;Link: </b><%= t.image_link %>
+</br>
+&nbsp;&nbsp;<%= link_to("Edit", {:controller => "testimonials", :id => t.id, :action => "edit"}) %>
+</td>
+</div>
+</tr>
+</table>
+<div style="margin-top:5px">
+<%= button_to("Delete", t, :confirm => "sure", :method=> :delete) %>
+</div>
+
+</br>
+</div>
+<% end %>
+&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to("+ Add Testimonial", :action => "new") %>
+</div>
+</html>
+

@@ -1,0 +1,13 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<h2>Delete Testimonial</h2>
+
+<%= form_for(:testimonial, :url => {:action => 'destroy', :id => @testimonial.id}) do |f| %>
+<p>Are you sure you want to permanently delete this testimonial?</p>
+<%= @testimonial.country%>
+<%= @testimonial.program%>
+    <div class="form-buttons">
+      <%= submit_tag("Delete Testimonial") %>
+    </div>
+<% end %>
+
